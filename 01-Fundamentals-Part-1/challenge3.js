@@ -66,32 +66,21 @@ averageKoalas.push(sumKoalas / koalasScoreTestData3.length);
 //Game results
 if (averageDolphins.length === averageKoalas.length) {
   for (let i = 0; i < averageDolphins.length; i++) {
+    const scoreString = `${averageDolphins[i].toFixed(2)}:${averageKoalas[
+      i
+    ].toFixed(2)}`;
     if ((averageDolphins[i] && averageKoalas[i]) < minimumScore) {
       console.log(
-        `Both teams scored below minimum score (${averageDolphins[i].toFixed(
-          2
-        )}:${averageKoalas[i].toFixed(2)}). No winner determined for game #${
+        `Both teams scored below minimum score (${scoreString}). No winner determined for game #${
           i + 1
         }`
       );
     } else if (averageDolphins[i] > averageKoalas[i]) {
-      console.log(
-        `Dolphins won game #${i + 1} - ${averageDolphins[i].toFixed(
-          2
-        )}:${averageKoalas[i].toFixed(2)}`
-      );
+      console.log(`Dolphins won game #${i + 1} - ${scoreString}}`);
     } else if (averageDolphins[i] < averageKoalas[i]) {
-      console.log(
-        `Koalas won game #${i + 1} - ${averageDolphins[i].toFixed(
-          2
-        )}:${averageKoalas[i].toFixed(2)}`
-      );
+      console.log(`Koalas won game #${i + 1} - ${scoreString}`);
     } else {
-      console.log(
-        `Game #${i + 1} resulted in a draw - ${averageDolphins[i].toFixed(
-          2
-        )}:${averageKoalas[i].toFixed(2)}`
-      );
+      console.log(`Game #${i + 1} resulted in a draw - ${scoreString}`);
     }
   }
 } else {
