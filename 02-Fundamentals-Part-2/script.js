@@ -15,12 +15,12 @@ A team ONLY wins if it has at least DOUBLE the average score of the other team. 
 const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
 
 function checkWinner(avgTeam1, avgTeam2) {
-  if (avgTeam1 > avgTeam2 && avgTeam1 >= avgTeam2 * 2) {
-    console.log(`Dolphins win (${avgTeam1}) vs. (${avgTeam2}).`);
-  } else if (avgTeam1 < avgTeam2 && avgTeam2 >= avgTeam1 * 2) {
-    console.log(`Koalas win (${avgTeam1}) vs. (${avgTeam2}).`);
+  if (avgTeam1 >= avgTeam2 * 2) {
+    console.log(`Dolphins win (${avgTeam1}):(${avgTeam2}).`);
+  } else if (avgTeam2 >= avgTeam1 * 2) {
+    console.log(`Koalas win (${avgTeam2}):(${avgTeam1}).`);
   } else {
-    console.log(`No team wins`);
+    console.log(`No team wins (${avgTeam1}):(${avgTeam2}).`);
   }
 }
 
