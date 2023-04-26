@@ -12,6 +12,8 @@ A team ONLY wins if it has at least DOUBLE the average score of the other team. 
 5. Ignore draws this time.
 */
 'use strict';
+let avgDolphins;
+let avgKoalas;
 const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
 
 function checkWinner(avgTeam1, avgTeam2) {
@@ -20,15 +22,14 @@ function checkWinner(avgTeam1, avgTeam2) {
   } else if (avgTeam2 >= avgTeam1 * 2) {
     console.log(`Koalas win (${avgTeam2}):(${avgTeam1}).`);
   } else {
-    console.log(`No team wins (${avgTeam1}):(${avgTeam2}).`);
+    console.log(`No team wins (Dolphins ${avgTeam1}):(${avgTeam2} Koalas).`);
   }
 }
 
-const avgDolphins1 = calcAverage(44, 23, 71);
-const avgKoalas1 = calcAverage(65, 54, 49);
+avgDolphins = calcAverage(44, 23, 71);
+avgKoalas = calcAverage(65, 54, 49);
+checkWinner(avgDolphins, avgKoalas);
 
-const avgDolphins2 = calcAverage(85, 54, 41);
-const avgKoalas2 = calcAverage(23, 34, 27);
-
-checkWinner(avgDolphins1, avgKoalas1);
-checkWinner(avgDolphins2, avgKoalas2);
+avgDolphins = calcAverage(85, 54, 41);
+avgKoalas = calcAverage(23, 34, 27);
+checkWinner(avgDolphins, avgKoalas);
