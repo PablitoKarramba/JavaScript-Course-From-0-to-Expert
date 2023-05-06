@@ -12,13 +12,13 @@ TEST DATA 2: [12, 5, -5, 0, 4]
 const maximumTemperatures = [17, 21, 23];
 const maximumTemperatures2 = [12, 5, -5, 0, 4];
 
-const weatherForecast = function (temperatures) {
-  let forecastString = [];
+const printForecast = function (temperatures) {
+  let forecastString = [''];
   for (let i = 0; i < temperatures.length; i++) {
-    forecastString.push(`... ${temperatures[i]}ºC in ${i + 1} days `);
+    forecastString.push(` ${temperatures[i]}ºC in ${i + 1} days `);
   }
-  return forecastString.join('');
+  return forecastString.join('...');
 };
 
-console.log(weatherForecast(maximumTemperatures));
-console.log(weatherForecast(maximumTemperatures2));
+console.log(printForecast(maximumTemperatures));
+console.log(printForecast(maximumTemperatures2));
