@@ -1,7 +1,7 @@
 'use strict';
 
 //generate secret number
-const secretNumber = Math.trunc(Math.random() * 99 + 1);
+let secretNumber = Math.trunc(Math.random() * 99 + 1);
 console.log(`Secret: ${secretNumber}`);
 
 //Calculate score
@@ -44,4 +44,26 @@ document.querySelector('.check').addEventListener('click', function () {
       updateScore(-1);
     }
   }
+});
+
+//Again button functionality (reset)
+document.querySelector('.again').addEventListener('click', function () {
+  //clear user input
+  document.querySelector('.guess').value = '';
+
+  //reset info message
+  document.querySelector('.message').textContent = `Start guessing...`;
+  document.querySelector('.number').textContent = '?';
+
+  //reset score
+  score = 20;
+  document.querySelector('.score').textContent = score;
+
+  //change style back to default
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
+
+  //generate new secret number
+  secretNumber = Math.trunc(Math.random() * 99 + 1);
+  console.log(`New secret: ${secretNumber}`);
 });
