@@ -14,7 +14,7 @@ const updateScore = (points) => {
 //Check button handler
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value); // value inserted into input field
-
+  console.log(guess);
   // compare value against secret number
   if (!guess) {
     //BUG: handle if user inserted 0
@@ -24,18 +24,20 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = `Correct guess!`;
     updateScore(10);
   } else if (guess > secretNumber) {
-    if (score > 0) {
+    if (score > 1) {
       document.querySelector('.message').textContent = `Value too high`;
       updateScore(-1);
     } else {
       document.querySelector('.message').textContent = `You lost!`;
+      updateScore(-1);
     }
-  } else {
-    if (score > 0) {
+  } else if (guess < secretNumber) {
+    if (score > 1) {
       document.querySelector('.message').textContent = `Value too low`;
       updateScore(-1);
     } else {
       document.querySelector('.message').textContent = `You lost!`;
+      updateScore(-1);
     }
   }
 });
