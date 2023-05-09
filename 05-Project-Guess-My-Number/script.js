@@ -23,6 +23,10 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.number').textContent = secretNumber;
     document.querySelector('.message').textContent = `Correct guess!`;
     updateScore(10);
+
+    //change website style
+    document.querySelector('body').style.backgroundColor = '#31cf39';
+    document.querySelector('.number').style.width = '30rem';
   } else if (guess > secretNumber) {
     if (score > 1) {
       document.querySelector('.message').textContent = `Value too high`;
