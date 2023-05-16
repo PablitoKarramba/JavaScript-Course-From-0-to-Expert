@@ -34,6 +34,12 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.highscore').textContent = highscore;
     }
 
+    // Activate "generate new" button
+    document.querySelector('.generate').style.pointerEvents = 'auto';
+
+    // Deactivate "check" button
+    document.querySelector('.check').style.pointerEvents = 'none';
+
     // Change website style
     document.querySelector('body').style.backgroundColor = '#31cf39';
     document.querySelector('.number').style.width = '30rem';
@@ -71,6 +77,9 @@ document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('.message').textContent = `Start guessing...`;
   document.querySelector('.number').textContent = '?';
 
+  // Activate check button
+  document.querySelector('.check').style.pointerEvents = 'auto';
+
   // Reset score
   score = 20;
   document.querySelector('.score').textContent = score;
@@ -82,4 +91,28 @@ document.querySelector('.again').addEventListener('click', function () {
   // Generate new secret number
   secretNumber = Math.trunc(Math.random() * 99 + 1);
   console.log(`New secret: ${secretNumber}`);
+});
+
+// Generate new number button handler (continue game)
+document.querySelector('.generate').addEventListener('click', function () {
+  // Clear user input
+  document.querySelector('.guess').value = '';
+
+  // Reset info message
+  document.querySelector('.message').textContent = `Start guessing...`;
+  document.querySelector('.number').textContent = '?';
+
+  // Activate check button
+  document.querySelector('.check').style.pointerEvents = 'auto';
+
+  // Change style back to default
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
+
+  // Generate new secret number
+  secretNumber = Math.trunc(Math.random() * 99 + 1);
+  console.log(`New secret: ${secretNumber}`);
+
+  // Deactivate the button
+  document.querySelector('.generate').style.pointerEvents = 'none';
 });

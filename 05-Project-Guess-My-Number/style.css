@@ -69,6 +69,11 @@ h1 {
   transform: translate(-50%, 50%);
 }
 
+.generate {
+  margin-top: 20px;
+  pointer-events: none;
+}
+
 .between {
   font-size: 1.4rem;
   position: absolute;
