@@ -41,6 +41,7 @@ document.querySelector('.check').addEventListener('click', function () {
       updateScore(-1);
     } else {
       document.querySelector('.message').textContent = `You lost!`;
+      document.querySelector('body').style.backgroundColor = '#ac1e1e';
       updateScore(-1);
     }
   }
