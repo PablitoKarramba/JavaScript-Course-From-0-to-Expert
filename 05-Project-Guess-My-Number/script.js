@@ -45,7 +45,6 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.number').style.width = '30rem';
   }
   // Guess too high
-  // BUG: user can guess a number when game is lost
   else if (guess > secretNumber) {
     if (score > 1) {
       document.querySelector('.message').textContent = `Value too high`;
@@ -53,6 +52,9 @@ document.querySelector('.check').addEventListener('click', function () {
     } else {
       document.querySelector('.message').textContent = `You lost!`;
       updateScore(-1);
+
+      // Deactivate "check" button
+      document.querySelector('.check').style.pointerEvents = 'none';
     }
   }
   // Guess too low
@@ -64,6 +66,9 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.message').textContent = `You lost!`;
       document.querySelector('body').style.backgroundColor = '#ac1e1e';
       updateScore(-1);
+
+      // Deactivate "check" button
+      document.querySelector('.check').style.pointerEvents = 'none';
     }
   }
 });
