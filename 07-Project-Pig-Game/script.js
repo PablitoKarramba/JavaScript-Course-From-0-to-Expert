@@ -1,12 +1,12 @@
 'use strict';
 
 // Select DOM elements
-const player0Section = document.querySelector('.player--0');
-const player1Section = document.querySelector('.player--1');
-const totalScorePlayer0 = document.querySelector('#score--0');
-const totalScorePlayer1 = document.querySelector('#score--1');
-const currentScorePlayer0 = document.querySelector('#current--0');
-const currentScorePlayer1 = document.querySelector('#current--1');
+const sectionPlayer0 = document.querySelector('.player--0');
+const sectionPlayer1 = document.querySelector('.player--1');
+const elemTotalScorePlayer0 = document.querySelector('#score--0');
+const elemTotalScorePlayer1 = document.querySelector('#score--1');
+const elemCurrentScorePlayer0 = document.querySelector('#current--0');
+const elemCurrentScorePlayer1 = document.querySelector('#current--1');
 
 const btnNewGame = document.querySelector('.btn--new');
 const btnRollDice = document.querySelector('.btn--roll');
@@ -17,10 +17,10 @@ const imgDice = document.querySelector('.dice');
 // Set starting conditions
 let isPlayer0Active = true;
 let currentScore = 0;
-let player0TotalScore = 0;
-let player1TotalScore = 0;
-totalScorePlayer0.textContent = player0TotalScore;
-totalScorePlayer1.textContent = player1TotalScore;
+let totalScorePlayer0 = 0;
+let totalScorePlayer1 = 0;
+elemTotalScorePlayer0.textContent = totalScorePlayer0;
+elemTotalScorePlayer1.textContent = totalScorePlayer1;
 
 imgDice.classList.add('hidden'); // Hide dice image at game start
 
@@ -38,23 +38,23 @@ btnRollDice.addEventListener('click', function () {
     // Add roll value to score
     currentScore += diceRollValue;
     if (isPlayer0Active) {
-      currentScorePlayer0.textContent = currentScore;
+      elemCurrentScorePlayer0.textContent = currentScore;
     } else {
-      currentScorePlayer1.textContent = currentScore;
+      elemCurrentScorePlayer1.textContent = currentScore;
     }
   } else {
     // Switch player
     if (isPlayer0Active) {
-      currentScorePlayer0.textContent = 0;
+      elemCurrentScorePlayer0.textContent = 0;
     } else {
-      currentScorePlayer1.textContent = 0;
+      elemCurrentScorePlayer1.textContent = 0;
     }
     isPlayer0Active = !isPlayer0Active;
     currentScore = 0;
 
     // Change style
-    player0Section.classList.toggle('player--active');
-    player1Section.classList.toggle('player--active');
+    sectionPlayer0.classList.toggle('player--active');
+    sectionPlayer1.classList.toggle('player--active');
   }
 });
 
@@ -62,39 +62,39 @@ btnHold.addEventListener('click', function () {
   // Add current score to total score
   if (isPlayer0Active) {
     // Player 0
-    player0TotalScore += currentScore;
-    totalScorePlayer0.textContent = player0TotalScore;
+    totalScorePlayer0 += currentScore;
+    elemTotalScorePlayer0.textContent = totalScorePlayer0;
     if (totalScorePlayer0 >= 100) {
       // Player 0 wins
-      player0Section.classList.add('player--winner');
+      sectionPlayer0.classList.add('player--winner');
       imgDice.classList.add('hidden');
     } else {
       // Switch player
       isPlayer0Active = !isPlayer0Active;
       currentScore = 0;
-      currentScorePlayer0.textContent = 0;
+      elemCurrentScorePlayer0.textContent = 0;
 
       // Change style
-      player0Section.classList.toggle('player--active');
-      player1Section.classList.toggle('player--active');
+      sectionPlayer0.classList.toggle('player--active');
+      sectionPlayer1.classList.toggle('player--active');
     }
   } else {
     // Player 1
-    player1TotalScore += currentScore;
-    totalScorePlayer1.textContent = player1TotalScore;
+    totalScorePlayer1 += currentScore;
+    elemTotalScorePlayer1.textContent = totalScorePlayer1;
     if (totalScorePlayer1 >= 100) {
       // Player 1 wins
-      player1Section.classList.add('player--winner');
+      sectionPlayer1.classList.add('player--winner');
       imgDice.classList.add('hidden');
     } else {
       // Switch player
       isPlayer0Active = !isPlayer0Active;
       currentScore = 0;
-      currentScorePlayer1.textContent = 0;
+      elemCurrentScorePlayer1.textContent = 0;
 
       // Change style
-      player0Section.classList.toggle('player--active');
-      player1Section.classList.toggle('player--active');
+      sectionPlayer0.classList.toggle('player--active');
+      sectionPlayer1.classList.toggle('player--active');
     }
   }
 });
