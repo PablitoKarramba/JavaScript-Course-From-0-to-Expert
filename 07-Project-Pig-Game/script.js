@@ -44,6 +44,11 @@ btnRollDice.addEventListener('click', function () {
     }
   } else {
     // Switch player
+    if (isPlayer0Active) {
+      currentScorePlayer0.textContent = 0;
+    } else {
+      currentScorePlayer1.textContent = 0;
+    }
     isPlayer0Active = !isPlayer0Active;
     currentScore = 0;
 
