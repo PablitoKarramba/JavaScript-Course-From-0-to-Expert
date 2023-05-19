@@ -46,12 +46,7 @@ btnRollDice.addEventListener('click', function () {
     currentScore = 0;
 
     // Change style
-    if (isPlayer0Active) {
-      player0Section.classList.add('player--active');
-      player1Section.classList.remove('player--active');
-    } else {
-      player1Section.classList.add('player--active');
-      player0Section.classList.remove('player--active');
-    }
+    player0Section.classList.toggle('player--active');
+    player1Section.classList.toggle('player--active');
   }
 });
