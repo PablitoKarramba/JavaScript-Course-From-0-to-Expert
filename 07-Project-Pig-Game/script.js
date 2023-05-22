@@ -15,14 +15,39 @@ const btnHold = document.querySelector('.btn--hold');
 const imgDice = document.querySelector('.dice');
 
 // Set starting conditions
-let isPlayer0Active = true;
-let currentScore = 0;
-let totalScorePlayer0 = 0;
-let totalScorePlayer1 = 0;
-elemTotalScorePlayer0.textContent = totalScorePlayer0;
-elemTotalScorePlayer1.textContent = totalScorePlayer1;
+let isPlayer0Active; // Boolean indicating active player
+let currentScore; // Current score of active player
+let totalScorePlayer0;
+let totalScorePlayer1;
 
-imgDice.classList.add('hidden'); // Hide dice image at game start
+// Initialization function
+const init = function () {
+  // Set active player 0
+  isPlayer0Active = true;
+  sectionPlayer0.classList.add('player--active');
+  sectionPlayer1.classList.remove('player--active');
+
+  // Reset scores
+  currentScore = 0;
+  totalScorePlayer0 = 0;
+  totalScorePlayer1 = 0;
+  elemTotalScorePlayer0.textContent = totalScorePlayer0;
+  elemTotalScorePlayer1.textContent = totalScorePlayer1;
+  elemCurrentScorePlayer0.textContent = currentScore;
+  elemCurrentScorePlayer1.textContent = currentScore;
+
+  // Hide dice image
+  imgDice.classList.add('hidden');
+
+  // Activate buttons
+  btnRollDice.style.pointerEvents = 'auto';
+  btnHold.style.pointerEvents = 'auto';
+
+  // Change style
+  sectionPlayer0.classList.remove('player--winner');
+  sectionPlayer1.classList.remove('player--winner');
+};
+init();
 
 // Rolling dice button handler
 btnRollDice.addEventListener('click', function () {
@@ -106,27 +131,5 @@ btnHold.addEventListener('click', function () {
   }
 });
 
-// New game button handler
-btnNewGame.addEventListener('click', function () {
-  // Hide dice
-  imgDice.classList.add('hidden');
-
-  // Reset scores
-  elemCurrentScorePlayer0.textContent = 0;
-  elemCurrentScorePlayer1.textContent = 0;
-  elemTotalScorePlayer0.textContent = 0;
-  elemTotalScorePlayer1.textContent = 0;
-
-  // Activate buttons
-  btnRollDice.style.pointerEvents = 'auto';
-  btnHold.style.pointerEvents = 'auto';
-
-  // Change style
-  sectionPlayer0.classList.remove('player--winner');
-  sectionPlayer1.classList.remove('player--winner');
-
-  // Switch back to player 0
-  isPlayer0Active = true;
-  sectionPlayer0.classList.add('player--active');
-  sectionPlayer1.classList.remove('player--active');
-});
+// New game button handler - reset game
+btnNewGame.addEventListener('click', init);
