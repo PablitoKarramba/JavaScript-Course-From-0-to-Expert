@@ -63,6 +63,15 @@ const switchPlayer = function () {
   sectionPlayer1.classList.toggle('player--active');
 };
 
+// Set game winner function
+const setWinner = function (winner) {
+  winner.classList.add('player--winner');
+  winner.classList.remove('player--active');
+  imgDice.classList.add('hidden');
+  btnRollDice.style.pointerEvents = 'none';
+  btnHold.style.pointerEvents = 'none';
+};
+
 init();
 
 // Rolling dice button handler
@@ -98,11 +107,7 @@ btnHold.addEventListener('click', function () {
     elemTotalScorePlayer0.textContent = totalScorePlayer0;
     if (totalScorePlayer0 >= 100) {
       // Player 0 wins
-      sectionPlayer0.classList.add('player--winner');
-      sectionPlayer0.classList.remove('player--active');
-      imgDice.classList.add('hidden');
-      btnRollDice.style.pointerEvents = 'none';
-      btnHold.style.pointerEvents = 'none';
+      setWinner(sectionPlayer0);
     } else {
       // Switch player
       switchPlayer();
@@ -113,11 +118,7 @@ btnHold.addEventListener('click', function () {
     elemTotalScorePlayer1.textContent = totalScorePlayer1;
     if (totalScorePlayer1 >= 100) {
       // Player 1 wins
-      sectionPlayer1.classList.add('player--winner');
-      sectionPlayer1.classList.remove('player--active');
-      imgDice.classList.add('hidden');
-      btnRollDice.style.pointerEvents = 'none';
-      btnHold.style.pointerEvents = 'none';
+      setWinner(sectionPlayer1);
     } else {
       // Switch player
       switchPlayer();
