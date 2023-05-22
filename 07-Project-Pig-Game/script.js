@@ -67,6 +67,7 @@ btnHold.addEventListener('click', function () {
     if (totalScorePlayer0 >= 100) {
       // Player 0 wins
       sectionPlayer0.classList.add('player--winner');
+      sectionPlayer0.classList.remove('player--active');
       imgDice.classList.add('hidden');
     } else {
       // Switch player
@@ -85,6 +86,7 @@ btnHold.addEventListener('click', function () {
     if (totalScorePlayer1 >= 100) {
       // Player 1 wins
       sectionPlayer1.classList.add('player--winner');
+      sectionPlayer1.classList.remove('player--active');
       imgDice.classList.add('hidden');
     } else {
       // Switch player
