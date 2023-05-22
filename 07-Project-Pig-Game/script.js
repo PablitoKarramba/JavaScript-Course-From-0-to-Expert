@@ -58,6 +58,7 @@ btnRollDice.addEventListener('click', function () {
   }
 });
 
+// Hold current score button handler
 btnHold.addEventListener('click', function () {
   // Add current score to total score
   if (isPlayer0Active) {
@@ -103,4 +104,29 @@ btnHold.addEventListener('click', function () {
       sectionPlayer1.classList.toggle('player--active');
     }
   }
+});
+
+// New game button handler
+btnNewGame.addEventListener('click', function () {
+  // Hide dice
+  imgDice.classList.add('hidden');
+
+  // Reset scores
+  elemCurrentScorePlayer0.textContent = 0;
+  elemCurrentScorePlayer1.textContent = 0;
+  elemTotalScorePlayer0.textContent = 0;
+  elemTotalScorePlayer1.textContent = 0;
+
+  // Activate buttons
+  btnRollDice.style.pointerEvents = 'auto';
+  btnHold.style.pointerEvents = 'auto';
+
+  // Change style
+  sectionPlayer0.classList.remove('player--winner');
+  sectionPlayer1.classList.remove('player--winner');
+
+  // Switch back to player 0
+  isPlayer0Active = true;
+  sectionPlayer0.classList.add('player--active');
+  sectionPlayer1.classList.remove('player--active');
 });
