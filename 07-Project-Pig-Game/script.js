@@ -69,6 +69,8 @@ btnHold.addEventListener('click', function () {
       sectionPlayer0.classList.add('player--winner');
       sectionPlayer0.classList.remove('player--active');
       imgDice.classList.add('hidden');
+      btnRollDice.style.pointerEvents = 'none';
+      btnHold.style.pointerEvents = 'none';
     } else {
       // Switch player
       isPlayer0Active = !isPlayer0Active;
@@ -88,6 +90,8 @@ btnHold.addEventListener('click', function () {
       sectionPlayer1.classList.add('player--winner');
       sectionPlayer1.classList.remove('player--active');
       imgDice.classList.add('hidden');
+      btnRollDice.style.pointerEvents = 'none';
+      btnHold.style.pointerEvents = 'none';
     } else {
       // Switch player
       isPlayer0Active = !isPlayer0Active;
