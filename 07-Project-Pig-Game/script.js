@@ -47,6 +47,22 @@ const init = function () {
   sectionPlayer0.classList.remove('player--winner');
   sectionPlayer1.classList.remove('player--winner');
 };
+
+// Switch player function
+const switchPlayer = function () {
+  currentScore = 0;
+  if (isPlayer0Active) {
+    elemCurrentScorePlayer0.textContent = 0;
+  } else {
+    elemCurrentScorePlayer1.textContent = 0;
+  }
+  isPlayer0Active = !isPlayer0Active;
+
+  // Change style
+  sectionPlayer0.classList.toggle('player--active');
+  sectionPlayer1.classList.toggle('player--active');
+};
+
 init();
 
 // Rolling dice button handler
@@ -69,17 +85,7 @@ btnRollDice.addEventListener('click', function () {
     }
   } else {
     // Switch player
-    if (isPlayer0Active) {
-      elemCurrentScorePlayer0.textContent = 0;
-    } else {
-      elemCurrentScorePlayer1.textContent = 0;
-    }
-    isPlayer0Active = !isPlayer0Active;
-    currentScore = 0;
-
-    // Change style
-    sectionPlayer0.classList.toggle('player--active');
-    sectionPlayer1.classList.toggle('player--active');
+    switchPlayer();
   }
 });
 
@@ -99,13 +105,7 @@ btnHold.addEventListener('click', function () {
       btnHold.style.pointerEvents = 'none';
     } else {
       // Switch player
-      isPlayer0Active = !isPlayer0Active;
-      currentScore = 0;
-      elemCurrentScorePlayer0.textContent = 0;
-
-      // Change style
-      sectionPlayer0.classList.toggle('player--active');
-      sectionPlayer1.classList.toggle('player--active');
+      switchPlayer();
     }
   } else {
     // Player 1
@@ -120,13 +120,7 @@ btnHold.addEventListener('click', function () {
       btnHold.style.pointerEvents = 'none';
     } else {
       // Switch player
-      isPlayer0Active = !isPlayer0Active;
-      currentScore = 0;
-      elemCurrentScorePlayer1.textContent = 0;
-
-      // Change style
-      sectionPlayer0.classList.toggle('player--active');
-      sectionPlayer1.classList.toggle('player--active');
+      switchPlayer();
     }
   }
 });
