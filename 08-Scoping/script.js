@@ -70,3 +70,9 @@ const car = {
 const bmw = car;
 bmw.brand = 'BMW'; // change to referenced memory address in Heap
 console.log('Car', car, 'BMW', bmw); // Car Object { brand: "BMW" } BMW Object { brand: "BMW" }
+
+// Actually copying car object
+const audi = Object.assign({}, car);
+audi.brand = 'Audi';
+console.log(audi);
+console.log(car);
