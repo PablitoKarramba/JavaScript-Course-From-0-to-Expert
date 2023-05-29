@@ -55,3 +55,18 @@ const obiekt = {
 };
 
 obiekt.calcAge();
+
+// -----===== Primitive vs Reference values =====-----
+// 1. Primitive
+let age = 20;
+let oldAge = age;
+age = 25;
+console.log(age, oldAge); // 25 20
+
+// 2. Reference
+const car = {
+  brand: 'Citroen',
+};
+const bmw = car;
+bmw.brand = 'BMW'; // change to referenced memory address in Heap
+console.log('Car', car, 'BMW', bmw); // Car Object { brand: "BMW" } BMW Object { brand: "BMW" }
