@@ -32,6 +32,10 @@ const restaurant = {
   orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
     console.log(starterIndex, mainIndex, time, address);
   },
+
+  oderPizza: function (ing1, ing2, ing3) {
+    console.log(`Ingredients ${ing1} + ${ing2} + ${ing3}`);
+  },
 };
 
 // Destructuring ARRAYS
@@ -87,3 +91,41 @@ restaurant.orderDelivery({
   mainIndex: 2,
   starterIndex: 1,
 });
+
+// Spread operator
+const arr1 = [7, 8, 9];
+console.log(...arr1);
+const newArr = [1, 2, ...arr1]; // instead [1,2,arr1[0], arr1[1], arr1[2]]
+console.log(newArr);
+
+// Copyig arrays
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Break string into single elements
+const carBrand = 'Citroen';
+const carBrandLetters = [...carBrand];
+console.log(carBrandLetters);
+
+// Use ... to pass array elements as parameter
+const pizzaIngredients = ['tomato sauce', 'cheese', 'salami'];
+restaurant.oderPizza(...pizzaIngredients);
+
+// Rest pattern
+const [ab, , cd, ...others] = [1, 2, 3, 4, 5, 6];
+console.log(ab, cd, others);
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(sat, weekdays);
+
+const add = function (...numbers) {
+  console.log(numbers);
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+add(2, 5);
+const x = [5, 6, 3, 2];
+add(...x);
+add(x);
